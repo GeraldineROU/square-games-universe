@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -8,11 +8,11 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>square-game-universe</groupId>
-	<artifactId>square-game</artifactId>
+	<groupId>org.example</groupId>
+	<artifactId>springboot_firstproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>square-game</name>
-	<description>Demo project for Spring Boot</description>
+	<name>springboot_firstproject</name>
+	<description>springboot_firstproject</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -41,12 +41,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--        ADDED DEPENDENCY HERE-->
 		<dependency>
 			<groupId>fr.le_campus_numerique.square_games</groupId>
 			<artifactId>engine</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -57,42 +57,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-		<activeProfiles>
-			<activeProfile>github</activeProfile>
-		</activeProfiles>
-
-		<profiles>
-			<profile>
-				<id>github</id>
-				<repositories>
-					<repository>
-						<id>central</id>
-						<url>https://repo1.maven.org/maven2</url>
-					</repository>
-					<repository>
-						<id>github</id>
-						<url>>https://maven.pkg.github.com/le-campus-numerique/cda-java-spring-gameengine</url>
-						<snapshots>
-							<enabled>true</enabled>
-						</snapshots>
-					</repository>
-				</repositories>
-			</profile>
-		</profiles>
-
-		<servers>
-			<server>
-				<id>github</id>
-				<username>GeraldineROU</username>
-				<password>TOKEN</password>
-			</server>
-		</servers>
-	</settings>
 
 </project>
