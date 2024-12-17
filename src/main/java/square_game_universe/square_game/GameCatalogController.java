@@ -13,6 +13,6 @@ public class GameCatalogController {
 
     @GetMapping("/catalog")
     public Collection<String> getCatalog() {
-        return gameCatalog.getGameIdentifier();
+        return gameCatalog.getGamesIdentifier();
     }
 }
