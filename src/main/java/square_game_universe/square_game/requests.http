@@ -1,0 +1,10 @@
+### GET request to get games catalog
+GET http://localhost:8080/catalog
+
+### POST request to create a new tic tac toe game
+POST http://localhost:8080/games
+Content-Type: application/json
+
+{"type": "tictactoe", "playerCount": 2, "boardSize": 3}
+
+###

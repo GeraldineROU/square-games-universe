@@ -1,5 +1,10 @@
 package square_game_universe.square_game;
 
+import fr.le_campus_numerique.square_games.engine.Game;
+import fr.le_campus_numerique.square_games.engine.GameFactory;
+import fr.le_campus_numerique.square_games.engine.connectfour.ConnectFourGameFactory;
+import fr.le_campus_numerique.square_games.engine.taquin.TaquinGameFactory;
+import fr.le_campus_numerique.square_games.engine.tictactoe.TicTacToeGameFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +18,25 @@ public class GameController {
 
     @PostMapping("/games")
     public String createGame(@RequestBody GameCreationParams params) {
+        GameFactory gameFactory;
 
-        return UUID.randomUUID().toString();
+        switch (params.getType()) {
+            case "tictactoe":
+                gameFactory = new TicTacToeGameFactory();
+                break;
+            case "connect4":
+                gameFactory = new ConnectFourGameFactory();
+                break;
+            case "taquin":
+                gameFactory = new TaquinGameFactory();
+                break;
+            default:
+                return "";
+        }
+
+        Game game = gameFactory.createGame(params.getPlayerCount(), params.getBoardSize());
+
+        return game.getId().toString();
     }
 
     @GetMapping("/games/{gameId}")
