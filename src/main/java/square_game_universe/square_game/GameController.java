@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @RestController
 public class GameController {
+    //contient seulement la logique liée aux requetes
 
     @Autowired
     private GameServiceImpl gameServiceImpl;
@@ -20,6 +21,7 @@ public class GameController {
     public String createGame(@RequestBody GameCreationParams params) {
         GameFactory gameFactory;
 
+        //logique de vérif à implémenter côté service:
         switch (params.getType()) {
             case "tictactoe":
                 gameFactory = new TicTacToeGameFactory();
@@ -44,5 +46,9 @@ public class GameController {
 
         return null;
     }
+
+    //fonction pour effacer une partie
+
+    //
 
 }
