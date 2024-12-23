@@ -1,0 +1,30 @@
+1. Lister les jeux possibles
+GET /games
+
+2. Créer une partie d’un des jeux
+PUT /games/<game_id>
+
+POST /game-instances
+{ "game_id": "tictactoe" }
+-> crée une game-instance avec un ID généré
+
+(2.1 Avoir plus d’infos sur un jeu
+GET /games/<game_id>)
+
+3. Avoir l’état d’une partie
+GET /game-instances/<id>
+
+4. Avoir la liste des coups possibles
+GET /game-instances/<id>/moves
+
+5. Jouer un coup
+POST /game-instances/<id>/moves
+{ x: 3, y: 5 }
+
+6. PUT /game-instances/<id>/moves/<move_id/move_number>
+{ x: 3, y: 5 }
+
+Ressources:
+Jeux possibles -> games
+Parties -> game-instances
+2.1 -> dans game-instances, on a les coups - moves

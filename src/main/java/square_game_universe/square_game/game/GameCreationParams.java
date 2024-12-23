@@ -1,4 +1,4 @@
-package square_game_universe.square_game;
+package square_game_universe.square_game.game;
 
 public class GameCreationParams {
 

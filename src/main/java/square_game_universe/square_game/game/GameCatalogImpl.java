@@ -1,4 +1,4 @@
-package square_game_universe.square_game;
+package square_game_universe.square_game.game;
 
 import fr.le_campus_numerique.square_games.engine.connectfour.ConnectFourGame;
 import fr.le_campus_numerique.square_games.engine.taquin.TaquinGame;
