@@ -1,0 +1,4 @@
+S’inspirer des étapes 2 à 4
+pour ajouter PUT /joueurs/{id}
+qui met à jour les informations
+du joueur avec l’id {id}
