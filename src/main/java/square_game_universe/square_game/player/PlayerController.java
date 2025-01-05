@@ -25,8 +25,8 @@ public class PlayerController {
     }
 
     @PostMapping()
-    public PlayerDTO createPlayer(@RequestBody PlayerDTO playerDTO) {
-        return playerService.create(playerDTO.name());
+    public Integer createPlayer(@RequestBody PlayerDTO playerDTO) {
+        return playerService.create(playerDTO);
     }
 
     @DeleteMapping("/{id}")

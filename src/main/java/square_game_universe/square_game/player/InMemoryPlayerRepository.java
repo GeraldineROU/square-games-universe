@@ -1,5 +1,6 @@
 package square_game_universe.square_game.player;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Profile("In_memory")
 public class InMemoryPlayerRepository implements PlayerDAO {
     private List<PlayerDTO> players;
 
@@ -29,13 +31,13 @@ public class InMemoryPlayerRepository implements PlayerDAO {
     }
 
     @Override
-    public PlayerDTO create(String name) {
+    public Integer create(PlayerDTO playerDTO) {
         int newId = players.size();
 
-        PlayerDTO newPlayer = new PlayerDTO(newId, name);
+        PlayerDTO newPlayer = new PlayerDTO(newId, playerDTO.name());
         players.add(newPlayer);
 
-        return newPlayer;
+        return newPlayer.id();
     }
 
     @Override

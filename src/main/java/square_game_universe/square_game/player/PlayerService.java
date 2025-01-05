@@ -19,8 +19,8 @@ public class PlayerService {
         return playerDAO.getById(id);
     }
 
-    public PlayerDTO create(String name) {
-        return playerDAO.create(name);
+    public Integer create(PlayerDTO playerDTO) {
+        return playerDAO.create(playerDTO);
     }
 
     public List<PlayerDTO> deleteById(int id) {

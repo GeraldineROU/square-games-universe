@@ -8,7 +8,7 @@ public interface PlayerDAO {
 
     Optional<PlayerDTO> getById(int id);
 
-    PlayerDTO create(String name);
+    Integer create(PlayerDTO playerDTO);
 
     List<PlayerDTO> deleteById(int id);
 
