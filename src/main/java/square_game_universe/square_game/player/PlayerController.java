@@ -12,31 +12,31 @@ import java.util.Optional;
 public class PlayerController {
 
     @Autowired
-    private InMemoryPlayerRepository inMemoryPlayerRepository;
+    private PlayerService playerService;
 
     @GetMapping()
     public Collection<PlayerDTO> getPlayers() {
-        return inMemoryPlayerRepository.getAll();
+        return playerService.getAll();
     }
 
     @GetMapping("/{id}")
     public Optional<PlayerDTO> getPlayerById(@PathVariable("id") int id) {
-        return inMemoryPlayerRepository.getById(id);
+        return playerService.getById(id);
     }
 
     @PostMapping()
     public PlayerDTO createPlayer(@RequestBody PlayerDTO playerDTO) {
-        return inMemoryPlayerRepository.create(playerDTO.name());
+        return playerService.create(playerDTO.name());
     }
 
     @DeleteMapping("/{id}")
     public Collection<PlayerDTO> deletePlayerById(@PathVariable("id") int id) {
-        return inMemoryPlayerRepository.deleteById(id);
+        return playerService.deleteById(id);
     }
 
     @PutMapping("/{id}")
     public Optional<PlayerDTO> editPlayer(@RequestBody PlayerDTO playerDTO) {
-        return inMemoryPlayerRepository.edit(playerDTO.id(), playerDTO.name());
+        return playerService.edit(playerDTO.id(), playerDTO.name());
     }
 
 }

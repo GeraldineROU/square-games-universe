@@ -1,13 +1,14 @@
 package square_game_universe.square_game.player;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class InMemoryPlayerRepository implements InMemoryPlayerRepositoryDAO {
+@Repository
+public class InMemoryPlayerRepository implements PlayerDAO {
     private List<PlayerDTO> players;
 
     public InMemoryPlayerRepository() {
