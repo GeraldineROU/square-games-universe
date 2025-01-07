@@ -3,9 +3,6 @@ package square_game_universe.square_game.player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class PlayerService {
     @Autowired
@@ -15,8 +12,8 @@ public class PlayerService {
 //        return playerDAO.getAll();
 //    }
 
-    public Optional<PlayerJPAEntity> getById(Integer id) {
-        return playerJPARepository.findById(id);
+    public PlayerJPAEntity getById(Integer id) {
+        return playerJPARepository.getById(id);
     }
 
 //    public Integer create(PlayerDTO playerDTO) {

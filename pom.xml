@@ -8,11 +8,11 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.example</groupId>
-	<artifactId>springboot_firstproject</artifactId>
+	<groupId>square_game_universe</groupId>
+	<artifactId>square_game</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot_firstproject</name>
-	<description>springboot_firstproject</description>
+	<name>square_game</name>
+	<description>square_game</description>
 	<url/>
 	<licenses>
 		<license/>

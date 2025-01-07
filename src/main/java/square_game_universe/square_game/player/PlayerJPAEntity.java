@@ -1,29 +1,21 @@
 package square_game_universe.square_game.player;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class PlayerJPAEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String name;
 
-    protected PlayerJPAEntity() {}
+    public PlayerJPAEntity() {}
 
     public PlayerJPAEntity(String name) {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return String.format(
-                "Player[id=%d, name='%s']", id, name);
-    }
 
     public Integer getId() {
         return id;
@@ -31,5 +23,13 @@ public class PlayerJPAEntity {
 
     public String getName() {
         return name;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -4,24 +4,23 @@ package square_game_universe.square_game.player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/players")
 public class PlayerController {
 
     @Autowired
-    private PlayerService playerService;
+    private PlayerJPARepository playerJPARepository;
 
-//    @GetMapping()
-//    public Collection<PlayerDTO> getPlayers() {
-//        return playerService.getAll();
-//    }
+    @GetMapping()
+    public List<PlayerJPAEntity> getPlayers() {
+        return playerJPARepository.findAll();
+    }
 
     @GetMapping("/{id}")
-    public Optional<PlayerJPAEntity> getPlayerById(@PathVariable("id") int id) {
-        return playerService.getById(id);
+    public PlayerJPAEntity getPlayerById(@PathVariable("id") int id) {
+        return playerJPARepository.getReferenceById(id);
     }
 
 //    @PostMapping()

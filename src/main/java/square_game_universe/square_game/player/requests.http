@@ -1,13 +1,13 @@
 ### GET list of players
 GET http://localhost:8080/players
 
-### GET player by id
+### GET player by id 1
 GET http://localhost:8080/players/1
 
-### GET player by id
+### GET player by id 2
 GET http://localhost:8080/players/2
 
-### GET player by id
+### GET player by id 4
 GET http://localhost:8080/players/4
 
 ### CREATE new player
