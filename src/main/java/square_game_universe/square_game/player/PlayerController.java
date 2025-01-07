@@ -14,29 +14,29 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
-    @GetMapping()
-    public Collection<PlayerDTO> getPlayers() {
-        return playerService.getAll();
-    }
+//    @GetMapping()
+//    public Collection<PlayerDTO> getPlayers() {
+//        return playerService.getAll();
+//    }
 
     @GetMapping("/{id}")
-    public Optional<PlayerDTO> getPlayerById(@PathVariable("id") int id) {
+    public Optional<PlayerJPAEntity> getPlayerById(@PathVariable("id") int id) {
         return playerService.getById(id);
     }
 
-    @PostMapping()
-    public Integer createPlayer(@RequestBody PlayerDTO playerDTO) {
-        return playerService.create(playerDTO);
-    }
+//    @PostMapping()
+//    public Integer createPlayer(@RequestBody PlayerDTO playerDTO) {
+//        return playerService.create(playerDTO);
+//    }
 
-    @DeleteMapping("/{id}")
-    public Collection<PlayerDTO> deletePlayerById(@PathVariable("id") int id) {
-        return playerService.deleteById(id);
-    }
+//    @DeleteMapping("/{id}")
+//    public Collection<PlayerDTO> deletePlayerById(@PathVariable("id") int id) {
+//        return playerService.deleteById(id);
+//    }
 
-    @PutMapping("/{id}")
-    public Optional<PlayerDTO> editPlayer(@RequestBody PlayerDTO playerDTO) {
-        return playerService.edit(playerDTO.id(), playerDTO.name());
-    }
+//    @PutMapping("/{id}")
+//    public Optional<PlayerDTO> editPlayer(@RequestBody PlayerDTO playerDTO) {
+//        return playerService.edit(playerDTO.id(), playerDTO.name());
+//    }
 
 }

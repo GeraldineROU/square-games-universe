@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface PlayerJPARepository extends JpaRepository<PlayerJPAEntity, Integer> {
+public interface PlayerJPARepository extends CrudRepository<PlayerJPAEntity, Integer> {
 
 
     Optional<PlayerJPAEntity> findById(Integer id);

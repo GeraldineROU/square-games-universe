@@ -1,0 +1,34 @@
+### GET list of players
+GET http://localhost:8080/players
+
+### GET player by id
+GET http://localhost:8080/players/1
+
+### GET player by id
+GET http://localhost:8080/players/2
+
+### GET player by id
+GET http://localhost:8080/players/4
+
+### CREATE new player
+POST http://localhost:8080/players
+Content-Type: application/json
+
+{
+  "name": "Plini"
+}
+
+### DELETE player by id
+DELETE http://localhost:8080/players/3
+
+### DELETE player by id OOB
+DELETE http://localhost:8080/players/9
+
+### PUT player to edit
+PUT http://localhost:8080/players/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Zézé l'Aventurier"
+}

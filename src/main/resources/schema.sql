@@ -6,3 +6,11 @@ CREATE TABLE IF NOT EXISTS players(
                                       id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                                       name VARCHAR (100) NOT NULL
     );
+
+INSERT INTO players (name) VALUES
+                                   ('Plinicha'),
+                                   ('Cobalt'),
+                                   ('Plinicha'),
+                                   ('Zéphyr'),
+                                   ('Plinicha'),
+                                   ('Baldr');

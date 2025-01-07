@@ -9,26 +9,26 @@ import java.util.Optional;
 @Service
 public class PlayerService {
     @Autowired
-    private PlayerDAO playerDAO;
+    private PlayerJPARepository playerJPARepository;
 
-    public List<PlayerDTO> getAll() {
-        return playerDAO.getAll();
+//    public List<PlayerDTO> getAll() {
+//        return playerDAO.getAll();
+//    }
+
+    public Optional<PlayerJPAEntity> getById(Integer id) {
+        return playerJPARepository.findById(id);
     }
 
-    public Optional<PlayerDTO> getById(int id) {
-        return playerDAO.getById(id);
-    }
+//    public Integer create(PlayerDTO playerDTO) {
+//        return playerDAO.create(playerDTO);
+//    }
 
-    public Integer create(PlayerDTO playerDTO) {
-        return playerDAO.create(playerDTO);
-    }
+//    public List<PlayerDTO> deleteById(int id) {
+//        return playerDAO.deleteById(id);
+//    }
 
-    public List<PlayerDTO> deleteById(int id) {
-        return playerDAO.deleteById(id);
-    }
-
-    public Optional<PlayerDTO> edit(int id, String name) {
-        return playerDAO.edit(id, name);
-    }
+//    public Optional<PlayerDTO> edit(int id, String name) {
+//        return playerDAO.edit(id, name);
+//    }
 
 }
