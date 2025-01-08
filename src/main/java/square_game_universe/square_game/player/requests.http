@@ -18,17 +18,20 @@ Content-Type: application/json
   "name": "Plini"
 }
 
-### DELETE player by id
+### DELETE player by id 3
 DELETE http://localhost:8080/players/3
+
+### DELETE player by id 1
+DELETE http://localhost:8080/players/1
 
 ### DELETE player by id OOB
 DELETE http://localhost:8080/players/9
 
-### PUT player to edit
-PUT http://localhost:8080/players/1
+### PUT player to edit by id 4
+PUT http://localhost:8080/players/4
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 4,
   "name": "Zézé l'Aventurier"
 }
