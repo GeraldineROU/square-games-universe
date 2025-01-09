@@ -3,29 +3,59 @@ package square_game_universe.square_game.player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Service
-public class PlayerService {
+public class PlayerService implements PlayerDAO {
+
+    @Autowired
+    private PlayerMapper mapper;
+
     @Autowired
     private PlayerJPARepository playerJPARepository;
+    @Autowired
+    private PlayerMapper playerMapper;
 
-//    public List<PlayerDTO> getAll() {
-//        return playerDAO.getAll();
-//    }
-
-    public PlayerJPAEntity getById(Integer id) {
-        return playerJPARepository.getById(id);
+    @Override
+    public List<PlayerDTO> findAll() {
+        List<PlayerJPAEntity> listOfPlayersEntity = playerJPARepository.findAll();
+        List<PlayerDTO> playerDTOList = new ArrayList<>();
+        listOfPlayersEntity.forEach(player -> {
+            PlayerDTO newPlayer = new PlayerDTO(player.getId(), player.getName());
+            playerDTOList.add(newPlayer);
+        });
+        return playerDTOList;
     }
 
-//    public Integer create(PlayerDTO playerDTO) {
-//        return playerDAO.create(playerDTO);
-//    }
+    @Override
+    public Optional<PlayerDTO> findById(Integer id) {
+        Optional<PlayerJPAEntity> optionalPlayerEntity = playerJPARepository.findById(id);
+        PlayerJPAEntity playerEntity = optionalPlayerEntity.get();
+        return Optional.of(new PlayerDTO(playerEntity.getId(), playerEntity.getName()));
+    }
 
-//    public List<PlayerDTO> deleteById(int id) {
-//        return playerDAO.deleteById(id);
-//    }
+    @Override
+    public PlayerDTO save(PlayerDTO playerDTO) {
+        PlayerJPAEntity newPlayerEntity = new PlayerJPAEntity(playerDTO.getName());
+        playerJPARepository.save(newPlayerEntity);
+        PlayerDTO newPlayer = new PlayerDTO(newPlayerEntity.getId(), newPlayerEntity.getName());
+        return newPlayer;
+    }
 
-//    public Optional<PlayerDTO> edit(int id, String name) {
-//        return playerDAO.edit(id, name);
-//    }
+    @Override
+    public void deleteById(Integer id) {
+        playerJPARepository.deleteById(id);
+    }
+
+    @Override
+    public void edit(PlayerDTO playerDTO) {
+        Optional<PlayerJPAEntity> optionalPlayerJPAEntity = playerJPARepository.findById(playerDTO.getId());
+        PlayerJPAEntity playerEntity = optionalPlayerJPAEntity.get();
+        mapper.updatePlayerFromDto(playerDTO, playerEntity);
+        playerJPARepository.save(playerEntity);
+    }
+
 
 }

@@ -27,11 +27,11 @@ DELETE http://localhost:8080/players/1
 ### DELETE player by id OOB
 DELETE http://localhost:8080/players/9
 
-### PUT player to edit by id 4
-PUT http://localhost:8080/players/4
+### PUT player to edit by id 55
+PUT http://localhost:8080/players/55
 Content-Type: application/json
 
 {
-  "id": 4,
+  "id": 55,
   "name": "Zézé l'Aventurier"
 }

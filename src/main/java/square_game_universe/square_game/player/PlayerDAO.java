@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PlayerDAO {
-    List<PlayerDTORecord> getAll();
+    List<PlayerDTO> findAll();
 
-    Optional<PlayerDTORecord> getById(int id);
+    Optional<PlayerDTO> findById(Integer id);
 
-    Integer create(PlayerDTORecord playerDTORecord);
+    PlayerDTO save(PlayerDTO player);
 
-    List<PlayerDTORecord> deleteById(int id);
+    void deleteById(Integer id);
 
-    Optional<PlayerDTORecord> edit(int id, String name);
+    void edit(PlayerDTO playerDTO);
 }

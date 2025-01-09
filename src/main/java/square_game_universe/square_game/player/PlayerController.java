@@ -12,31 +12,31 @@ import java.util.Optional;
 public class PlayerController {
 
     @Autowired
-    private PlayerJPARepository playerJPARepository;
+    private PlayerService playerService;
 
     @GetMapping()
-    public List<PlayerJPAEntity> getPlayers() {
-        return playerJPARepository.findAll();
+    public List<PlayerDTO> getPlayers() {
+        return playerService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<PlayerJPAEntity> getPlayerById(@PathVariable("id") Integer id) {
-        return playerJPARepository.findById(id);
+    public Optional<PlayerDTO> getPlayerById(@PathVariable("id") Integer id) {
+        return playerService.findById(id);
     }
 
     @PostMapping()
-    public PlayerJPAEntity createPlayer(@RequestBody PlayerJPAEntity playerJPAEntity) {
-        return playerJPARepository.save(playerJPAEntity);
+    public Optional<PlayerDTO> createPlayer(@RequestBody PlayerDTO player) {
+        return Optional.ofNullable(playerService.save(player));
     }
 
     @DeleteMapping("/{id}")
     public void  deletePlayerById(@PathVariable("id") Integer id) {
-        playerJPARepository.deleteById(id);
+        playerService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public void editPlayer(@RequestBody PlayerJPAEntity playerJPAEntity) {
-        playerJPARepository.save(playerJPAEntity);
+    public void editPlayer(@RequestBody PlayerDTO playerDTO) {
+        playerService.edit(playerDTO);
     }
 
 }
