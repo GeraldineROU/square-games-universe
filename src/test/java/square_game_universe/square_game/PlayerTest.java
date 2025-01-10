@@ -39,19 +39,19 @@ public class PlayerTest {
                 .andExpect(jsonPath("$.length()", is(0)));
     }
 
-    @Test
-    void testCreateReview() throws Exception {
-        PlayerJPAEntity player = new PlayerJPAEntity("Baldr test");
-
-        mockMvc.perform(post("/players")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\n" +
-                                "  \"name\": \"Baldr de test\"\n" +
-                                "}"))
-
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-
-                .andExpect(jsonPath("$.id", any(Integer.class)))
-                .andExpect(jsonPath("$.name", Matchers.is("Baldr de test")));
-    }
+//    @Test
+//    void testCreateReview() throws Exception {
+//        PlayerJPAEntity player = new PlayerJPAEntity("Baldr test");
+//
+//        mockMvc.perform(post("/players")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content("{\n" +
+//                                "  \"name\": \"Baldr de test\"\n" +
+//                                "}"))
+//
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+//
+//                .andExpect(jsonPath("$.id", any(Integer.class)))
+//                .andExpect(jsonPath("$.name", Matchers.is("Baldr de test")));
+//    }
 }

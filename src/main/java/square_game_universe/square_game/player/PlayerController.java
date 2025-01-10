@@ -1,7 +1,9 @@
 package square_game_universe.square_game.player;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +27,10 @@ public class PlayerController {
     }
 
     @PostMapping()
-    public Optional<PlayerDTO> createPlayer(@RequestBody PlayerDTO player) {
-        return Optional.ofNullable(playerService.save(player));
+    public ResponseEntity<String> createPlayer(@Valid @RequestBody PlayerDTO player) {
+        playerService.save(player);
+        return ResponseEntity.ok("Player name is valid. Player created");
+//        return Optional.ofNullable(playerService.save(player));
     }
 
     @DeleteMapping("/{id}")

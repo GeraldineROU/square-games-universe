@@ -15,11 +15,30 @@ POST http://localhost:8080/players
 Content-Type: application/json
 
 {
-  "name": "Plini"
+  "name": "Plinicha",
+  "age": 25
 }
 
-### DELETE player by id 3
-DELETE http://localhost:8080/players/3
+### CREATE new player with empty name
+POST http://localhost:8080/players
+Content-Type: application/json
+
+{
+  "name": "",
+  "age": 7
+}
+
+### CREATE new player with wrong age
+POST http://localhost:8080/players
+Content-Type: application/json
+
+{
+  "name": "Bébécha",
+  "age": 7
+}
+
+### DELETE player by id 352
+DELETE http://localhost:8080/players/352
 
 ### DELETE player by id 1
 DELETE http://localhost:8080/players/1
@@ -33,5 +52,6 @@ Content-Type: application/json
 
 {
   "id": 55,
-  "name": "Zézé l'Aventurier"
+  "name": "Zézé l'Aventurier",
+  "age": 19
 }
