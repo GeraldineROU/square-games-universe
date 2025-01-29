@@ -1,8 +1,20 @@
 services:
-  db:
+  mysql-server:
     image: mysql
     restart: always
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: "mysql --user=root --password=password -e \"SELECT 1\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+  square_games:
+    image: square-games-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
